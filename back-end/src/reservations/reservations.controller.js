@@ -3,7 +3,7 @@ const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 const hasProperties = require("../errors/hasProperties");
 const hasValidReservationProperties = require("../errors/hasValidReservationProperties");
 const hasValidUpdateResStatusProperties = require("../errors/hasValidUpdateResStatusProperties");
-const hasValidTableProperties = require("../errors/hasValidTableProperties");
+const hasValidTableProperties = require("../errors/table_errors/hasValidTableProperties");
 
 /**
  * List handler for reservation resources for a particular reservation_date or mobile_number
