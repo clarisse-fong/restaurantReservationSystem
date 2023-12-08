@@ -57,21 +57,28 @@ export const TableForm = () => {
     <div>
       <ErrorAlert error={tableErrors} />
       <form>
-        <div>
-          <label htmlFor="table_name">
-            Table Name
-            <input
-              type="text"
-              id="table_name"
-              name="table_name"
-              onChange={onChangeHandler}
-              value={formData.table_name ? formData.table_name : ""}
-            ></input>
-          </label>
-        </div>
-        <div>
-          <label htmlFor="capacity">
-            Capacity
+        <div className="border p-2 w-50">
+          <div>
+            <div className="d-flex justify-content-between">
+              <label
+                htmlFor="table_name"
+                className="font-weight-bold font-family-sans-serif"
+              >
+                Table Name:
+              </label>
+              <input
+                type="text"
+                id="table_name"
+                name="table_name"
+                onChange={onChangeHandler}
+                value={formData.table_name ? formData.table_name : ""}
+              ></input>
+            </div>
+          </div>
+          <div className="d-flex justify-content-between">
+            <label htmlFor="capacity" className="font-weight-bold">
+              Capacity:
+            </label>
             <input
               type="number"
               id="capacity"
@@ -79,18 +86,21 @@ export const TableForm = () => {
               onChange={onChangeHandler}
               value={formData.capacity ? formData.capacity : ""}
             ></input>
-          </label>
+          </div>
+          <br></br>
+          <div className="d-flex justify-content-start">
+            <button
+              className="btn btn-primary"
+              type="submit"
+              onClick={submitHandler}
+            >
+              Submit
+            </button>
+            <button className="btn btn-danger" onClick={cancelHandler}>
+              Cancel
+            </button>
+          </div>
         </div>
-        <button
-          className="btn btn-primary"
-          type="submit"
-          onClick={submitHandler}
-        >
-          Submit
-        </button>
-        <button className="btn btn-danger" onClick={cancelHandler}>
-          Cancel
-        </button>
       </form>
     </div>
   );

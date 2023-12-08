@@ -83,6 +83,7 @@ function ListAllReservations({ reservations }) {
     return (
       <div>
         <ErrorAlert error={reservationErrors} />
+
         <table className="table">
           <thead>
             <tr>
@@ -104,5 +105,57 @@ function ListAllReservations({ reservations }) {
     );
   }
 }
+
+//   <div>
+//     <div class="card-body border d-flex">
+//       <div className="d-flex justify-content-between">
+//         <div>
+//           <h5 class="card-title">
+//             {reservation.first_name} {reservation.last_name}
+//           </h5>
+//           <p>{reservation.reservation_time}</p>
+//           <p>{reservation.people}</p>
+//           <p>{reservation.mobile_number}</p>
+//         </div>
+
+//         <div>
+//           <div>
+//             {reservation.status === "booked" ? (
+//               <a href={`/reservations/${reservation.reservation_id}/seat`}>
+//                 <button className="btn btn-primary">Seat</button>
+//               </a>
+//             ) : (
+//               " "
+//             )}
+//           </div>
+//           <div>
+//             {reservation.status === "booked" ? (
+//               <a href={`/reservations/${reservation.reservation_id}/edit`}>
+//                 <button className="btn btn-secondary">Edit</button>
+//               </a>
+//             ) : (
+//               " "
+//             )}
+//           </div>
+//           <div>
+//             {reservation.status === "booked" ? (
+//               <button
+//                 className="btn btn-danger"
+//                 data-reservation-id-cancel={reservation.reservation_id}
+//                 onClick={() => {
+//                   cancelReservationHandler(reservation.reservation_id);
+//                 }}
+//               >
+//                 Cancel
+//               </button>
+//             ) : (
+//               ""
+//             )}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// );
 
 export default ListAllReservations;
