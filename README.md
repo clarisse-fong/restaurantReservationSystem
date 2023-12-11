@@ -18,7 +18,10 @@ From the assignment,
 
 Chegg skills gave user stories to inform what functions the user would need such as listing reservations, creating reservations, creating tables, assigning reservations to tables, updating the status of a reservation and table once its assigned.
 
-You can find the original assignment here [Thinkful-Ed/starter-restaurant-reservation](https://github.com/Thinkful-Ed/starter-restaurant-reservation).
+You can find the original assignment here [Thinkful-Ed/starter-restaurant-reservation](https://github.com/Thinkful-Ed/starter-restaurant-reservation),
+
+You can find the deployed backend [here](https://restaurantreservationsystem-backend.onrender.com)
+and the deployed frontend [here](https://restaurantreservationsystem-frontend.onrender.com).
 
 ## Client Descriptions
 
