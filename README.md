@@ -25,26 +25,36 @@ You can find the original assignment here [Thinkful-Ed/starter-restaurant-reserv
 ### Dashboard
 
 The Dashboard page displays all reservations for a given date and all tables. Each reservation has an option to seat, edit or, cancel the reservation. Each table displays the capacity and status. If the table is occupied, it also displays the reservation_id and a button to clear the table once its done.
+<img width="1472" alt="image" src="https://github.com/clarisse-fong/restaurantReservationSystem/assets/52180173/117778e8-d6d2-4c75-b5b8-a607eaa94778">
+
 
 ### New Reservation
 
 The New Reservation page allows you to create a new reservation by providing a first name, last name, mobile number, date of reservation, time of reservation, and number of people in the party.
+<img width="817" alt="image" src="https://github.com/clarisse-fong/restaurantReservationSystem/assets/52180173/e25bacc8-8475-4e28-8fcb-08c3d71d27b6">
+
 
 ### New Table Page
 
 The New Table page allows you to add a new table to the restaurant by providing a table name and table capacity.
+<img width="683" alt="image" src="https://github.com/clarisse-fong/restaurantReservationSystem/assets/52180173/91a7992d-9ac4-46dd-b5cc-147db3d2bf3a">
 
 ### Edit Reservation
 
 The Edit Reservation page allows you to edit the reservation you selected.
+<img width="768" alt="image" src="https://github.com/clarisse-fong/restaurantReservationSystem/assets/52180173/94a06896-3760-4d1b-bf76-0b4974984615">
 
 ### Seat Reservation
 
 The Seat Reservation page allows you to assign the reservation you selected to a particular table.
+<img width="768" alt="image" src="https://github.com/clarisse-fong/restaurantReservationSystem/assets/52180173/23d7d6fd-e5c7-4633-a082-d5aff327ce3f">
+
 
 ### Search
 
 The Search page allows you to search for a reservation by a partial or completey mobile number.
+<img width="663" alt="image" src="https://github.com/clarisse-fong/restaurantReservationSystem/assets/52180173/d1a68cab-c729-420f-81e4-5dfe13b3a6cd">
+
 
 # API
 
