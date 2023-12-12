@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { deleteReservationFromTable, listTables } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 /**
  * @returns {JSX.Element} a table with a list of all tables.
@@ -10,6 +11,7 @@ import ErrorAlert from "../layout/ErrorAlert";
 function ListAllTables() {
   const [tables, setTables] = useState([]);
   const [tablesError, setTablesError] = useState(null);
+  const history = useHistory();
 
   useEffect(loadTables, []);
 
@@ -32,7 +34,7 @@ function ListAllTables() {
       const abortController = new AbortController();
       deleteReservationFromTable(table_id, abortController.signal)
         .then(() => {
-          window.location.reload();
+          history.push("/");
         })
         .catch(setTablesError);
 
