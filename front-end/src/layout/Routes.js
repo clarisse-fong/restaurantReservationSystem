@@ -9,6 +9,7 @@ import NewTable from "../tables/NewTable";
 import SeatReservation from "../reservations/SeatReservation";
 import SearchPage from "../search/SearchPage";
 import EditReservation from "../reservations/EditReservation";
+import useQuery from "../utils/useQuery";
 
 /**
  * Defines all the routes for the application.
@@ -18,24 +19,25 @@ import EditReservation from "../reservations/EditReservation";
  * @returns {JSX.Element}
  */
 function Routes() {
+  const query = useQuery();
   return (
     <Switch>
       <Route exact={true} path="/">
         <Redirect to={"/dashboard"} />
       </Route>
-      <Route exact={true} path="/reservations/new">
-        <NewReservation />
-      </Route>
-      <Route exact={true} path="/reservations/:reservation_id/seat">
-        <SeatReservation />
-      </Route>
-      <Route exact={true} path="/reservations/:reservation_id/edit">
-        <EditReservation />
-      </Route>
-      <Route path="/reservations">
+      <Route exact={true} path="/reservations">
         <Redirect to={"/dashboard"} />
       </Route>
-      <Route exact={true} path="/tables/new">
+      <Route path="/reservations/new">
+        <NewReservation />
+      </Route>
+      <Route path="/reservations/:reservation_id/seat">
+        <SeatReservation />
+      </Route>
+      <Route path="/reservations/:reservation_id/edit">
+        <EditReservation />
+      </Route>
+      <Route path="/tables/new">
         <NewTable />
       </Route>
       <Route path="/dashboard">
