@@ -1,18 +1,14 @@
 import { useState } from "react";
 import { updateReservationStatus } from "../utils/api";
-import { Link, useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import ErrorAlert from "../layout/ErrorAlert";
-import useQuery from "../utils/useQuery";
 
 /**
  * @returns {JSX.Element} a table with a list of all reservations.
  */
 function ListAllReservations({ reservations }) {
   const [reservationErrors, setReservationErrors] = useState(null);
-  const location = useLocation();
-  const query = useQuery();
-  const date = query.get("date");
-  const mobile_num = query.get("mobile_number");
+  const history = useHistory();
 
   const cancelReservationHandler = (reservation_id) => {
     if (
@@ -27,7 +23,7 @@ function ListAllReservations({ reservations }) {
         abortController.signal
       )
         .then(() => {
-          window.location.reload();
+          history.push("/");
         })
         .catch(setReservationErrors);
 
@@ -73,18 +69,15 @@ function ListAllReservations({ reservations }) {
         </td>
         <td>
           {reservation.status === "booked" ? (
-            <Link
+            <button
               className="btn btn-danger"
               data-reservation-id-cancel={reservation.reservation_id}
-              to={`${location.pathname}?${
-                mobile_num ? `mobile_number=${mobile_num}` : `date=${date}`
-              }`}
               onClick={() =>
                 cancelReservationHandler(reservation.reservation_id)
               }
             >
               Cancel
-            </Link>
+            </button>
           ) : (
             ""
           )}
