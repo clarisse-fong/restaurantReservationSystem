@@ -71,9 +71,7 @@ function ListAllReservations({ reservations }) {
             <button
               className="btn btn-danger"
               data-reservation-id-cancel={reservation.reservation_id}
-              onClick={() => {
-                cancelReservationHandler(reservation.reservation_id);
-              }}
+              onClick={cancelReservationHandler(reservation.reservation_id)}
             >
               Cancel
             </button>
