@@ -12,7 +12,7 @@ function validateReservationDate(reservationDate, today) {
 
   //makes sure reservation date is not a Tuesday
   const resDateAsDateObject = new Date(reservationDate);
-  if (resDateAsDateObject.getDay() === 1) {
+  if (resDateAsDateObject.getUTCDay() === 2) {
     const error = new Error(
       `The reservation_date can't be a tuesday since the restaurant is closed on Tuesdays.`
     );
