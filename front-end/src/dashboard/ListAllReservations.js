@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { updateReservationStatus } from "../utils/api";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import ErrorAlert from "../layout/ErrorAlert";
 
 /**
@@ -43,18 +44,24 @@ function ListAllReservations({ reservations }) {
         <td>{reservation.people}</td>
         <td>
           {reservation.status === "booked" ? (
-            <a href={`/reservations/${reservation.reservation_id}/seat`}>
-              <button className="btn btn-primary">Seat</button>
-            </a>
+            <Link
+              to={`/reservations/${reservation.reservation_id}/seat`}
+              className="btn btn-primary"
+            >
+              Seat
+            </Link>
           ) : (
             " "
           )}
         </td>
         <td>
           {reservation.status === "booked" ? (
-            <a href={`/reservations/${reservation.reservation_id}/edit`}>
-              <button className="btn btn-secondary">Edit</button>
-            </a>
+            <Link
+              to={`/reservations/${reservation.reservation_id}/edit`}
+              className="btn btn-secondary"
+            >
+              Edit
+            </Link>
           ) : (
             " "
           )}
