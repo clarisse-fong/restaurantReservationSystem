@@ -8,9 +8,7 @@ function validatesReservationMobileNumber(mobile_number) {
     mobile_number.match(/^\d{10}$/) === null
   ) {
     const error = new Error(
-      `A valid mobile_number is required "###-###-####". ${mobile_number} does not work${
-        mobile_number.match(/^[1-9]\d{10}/) === null
-      } ${mobile_number.match(/^[1-9]\d{2}-\d{3}-\d{4}/) === null}`
+      `A valid mobile_number is required "###-###-####".`
     );
     error.status = 400;
     throw error;
