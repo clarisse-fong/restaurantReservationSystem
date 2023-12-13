@@ -21,7 +21,7 @@ function SearchMobileNumber() {
 
   return (
     <div>
-      <h1>Search for reservations by phone number</h1>
+      <h1>Search for reservations</h1>
       <form>
         <div className="form-group">
           <label htmlFor="mobile_number">

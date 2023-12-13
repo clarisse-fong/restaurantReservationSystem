@@ -86,8 +86,10 @@ function ListAllReservations({ reservations }) {
     );
   });
 
-  if (reservations.length === 0) {
-    return <p>No reservations found</p>;
+  if (reservations === null) {
+    return <p>Loading</p>;
+  } else if (reservations.length === 0) {
+    return <h3>No reservations found</h3>;
   } else {
     return (
       <div>
