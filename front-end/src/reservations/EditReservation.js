@@ -54,16 +54,21 @@ function EditReservation() {
   }
 
   //checks if reservation has loaded. If it hasn't loaded, say "loading". If not, return the ReservationForm component.
+  console.log(reservation.status);
   return reservation !== null ? (
     <div>
-      <ReservationForm
-        formData={formData}
-        setFormData={setFormData}
-        isEditing={true}
-        setReservationsErrors={setReservationsErrors}
-        reservationsErrors={reservationsErrors}
-        reservation_id={reservation_id}
-      />
+      {reservation.status !== "booked" ? (
+        <h3>You can only edit reservations that are booked</h3>
+      ) : (
+        <ReservationForm
+          formData={formData}
+          setFormData={setFormData}
+          isEditing={true}
+          setReservationsErrors={setReservationsErrors}
+          reservationsErrors={reservationsErrors}
+          reservation_id={reservation_id}
+        />
+      )}
     </div>
   ) : (
     <h1>Loading...</h1>
