@@ -102,7 +102,7 @@ async function destroy(req, res, next) {
 }
 
 module.exports = {
-  list,
+  list: [asyncErrorBoundary(list)],
   read: [asyncErrorBoundary(tableExists), read],
   create: [
     dataExists,

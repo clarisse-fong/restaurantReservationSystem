@@ -44,10 +44,12 @@ function ListAllTables() {
 
   const tableRows = tables.map((table) => {
     return (
-      <tr key={table.table_id} data-table-id-status={table.table_id}>
+      <tr key={table.table_id}>
         <td>{table.table_name}</td>
         <td>{table.capacity}</td>
-        <td>{table.reservation_id ? "occupied" : "free"}</td>
+        <td data-table-id-status={table.table_id}>
+          {table.reservation_id ? "Occupied" : "Free"}
+        </td>
         <td>{table.reservation_id ? table.reservation_id : ""}</td>
         <td>
           {table.reservation_id ? (

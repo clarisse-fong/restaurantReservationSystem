@@ -31,7 +31,7 @@ async function validateTableStatusUpdate(req, res, next) {
     if (table.capacity < reservation.people) {
       next({
         status: 400,
-        message: `Table ${table.table_id} does not have sufficient capacity since it fits ${table.capacity} but Reservation ${reservation.reservation_id} which has a party size of ${reservation.people} .`,
+        message: `Table ${table.table_id} does not have sufficient capacity since it fits ${table.capacity} but this reservation has a party size of ${reservation.people} .`,
       });
     }
     //makes sure that the table isn't already occupied
