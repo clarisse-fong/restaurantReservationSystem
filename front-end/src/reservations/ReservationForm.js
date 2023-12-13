@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { createReservation, editReservation } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
@@ -9,27 +9,41 @@ import ErrorAlert from "../layout/ErrorAlert";
  */
 
 function ReservationForm({
-  initialFormData,
+  formData,
+  setFormData,
   isEditing = false,
   reservationsErrors,
   setReservationsErrors,
   reservation_id = false,
 }) {
   const history = useHistory();
-  const [formData, setFormData] = useState(initialFormData);
-
-  //once the initialFormData is received, set the formData to that info.
-  useEffect(() => {
-    if (initialFormData) {
-    }
-    setFormData(initialFormData);
-  }, [initialFormData]);
 
   //handler for if any of the form inputs change
   const onChangeHandler = (event) => {
     const property = event.target.name;
-    const value =
-      property === "people" ? Number(event.target.value) : event.target.value;
+
+    let value;
+    switch (property) {
+      case "people":
+        value = Number(event.target.value);
+        break;
+      case "mobile_number":
+        const mobile_num = event.target.value.replaceAll("-", "");
+
+        if (mobile_num.length < 4) {
+          value = mobile_num;
+        } else if (mobile_num.length < 7) {
+          value = `${mobile_num.slice(0, 3)}-${mobile_num.slice(3)}`;
+        } else {
+          value = `${mobile_num.slice(0, 3)}-${mobile_num.slice(
+            3,
+            6
+          )}-${mobile_num.slice(6, 10)}`;
+        }
+        break;
+      default:
+        value = event.target.value;
+    }
 
     setFormData({
       ...formData,
@@ -67,7 +81,7 @@ function ReservationForm({
     return () => abortController.abort();
   };
 
-  return (
+  return formData.first_name !== null ? (
     <div>
       <ErrorAlert error={reservationsErrors} />
       <h1>Reservation Form</h1>
@@ -143,6 +157,8 @@ function ReservationForm({
         </div>
       </form>
     </div>
+  ) : (
+    "Loading..."
   );
 }
 

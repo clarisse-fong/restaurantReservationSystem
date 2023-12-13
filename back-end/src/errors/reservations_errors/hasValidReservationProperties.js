@@ -7,6 +7,7 @@
 const validateReservationDate = require("./validateReservationDate");
 const validatesReservationPartySize = require("./validateReservationPartySize");
 const validateReservationTime = require("./validateReservationTime");
+const validatesReservationMobileNumber = require("./validatesReservationMobileNumber");
 const validateReservationStatus = require("./validatesReservationStatus");
 
 function hasValidReservationProperties(isEdit = false) {
@@ -26,6 +27,9 @@ function hasValidReservationProperties(isEdit = false) {
           throw error;
         }
       }
+      //MOBILE NUMBER
+      validatesReservationMobileNumber(data["mobile_number"]);
+
       //RESERVATION DATE
       //checks if reservation dates are valid and also returns if the date is the same day as today
       const isSameDay = validateReservationDate(

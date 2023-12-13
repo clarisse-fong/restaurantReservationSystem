@@ -16,11 +16,13 @@ function NewReservation() {
     reservation_time: "",
     people: "",
   };
+  const [formData, setFormData] = useState(initialFormData);
 
   return (
     <div>
       <ReservationForm
-        initialFormData={initialFormData}
+        formData={formData}
+        setFormData={setFormData}
         setReservationsErrors={setReservationsErrors}
         reservationsErrors={reservationsErrors}
       />

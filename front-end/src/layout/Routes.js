@@ -9,7 +9,6 @@ import NewTable from "../tables/NewTable";
 import SeatReservation from "../reservations/SeatReservation";
 import SearchPage from "../search/SearchPage";
 import EditReservation from "../reservations/EditReservation";
-import useQuery from "../utils/useQuery";
 
 /**
  * Defines all the routes for the application.
@@ -19,7 +18,6 @@ import useQuery from "../utils/useQuery";
  * @returns {JSX.Element}
  */
 function Routes() {
-  const query = useQuery();
   return (
     <Switch>
       <Route exact={true} path="/">
