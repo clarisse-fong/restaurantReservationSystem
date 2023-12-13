@@ -56,7 +56,7 @@ function SeatReservation() {
           abortController.signal
         );
       })
-      .then(() => history.push(`/dashboard`))
+      .then(() => history.goBack())
       .catch(setReservationsError);
     return () => abortController.abort();
   };

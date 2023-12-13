@@ -23,7 +23,7 @@ function ListAllReservations({ reservations }) {
         abortController.signal
       )
         .then(() => {
-          history.push("/");
+          history.go(0);
         })
         .catch(setReservationErrors);
 

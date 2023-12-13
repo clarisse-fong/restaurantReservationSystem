@@ -25,7 +25,7 @@ function ListAllTables() {
     return () => abortController.abort();
   }
 
-  function finishHandler(table_id, reservation_id) {
+  function finishHandler(table_id) {
     if (
       window.confirm(
         "Is this table ready to seat new guests? This cannot be undone."
@@ -34,7 +34,7 @@ function ListAllTables() {
       const abortController = new AbortController();
       deleteReservationFromTable(table_id, abortController.signal)
         .then(() => {
-          history.push("/");
+          history.go(0);
         })
         .catch(setTablesError);
 
