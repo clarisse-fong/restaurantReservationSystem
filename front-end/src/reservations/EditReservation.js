@@ -39,7 +39,6 @@ function EditReservation() {
       readReservation(reservation_id, abortController.signal)
         .then(setReservation)
         .then(() => {
-          console.log("setting form data");
           setFormData({
             first_name: reservation.first_name,
             last_name: reservation.last_name,
