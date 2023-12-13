@@ -65,6 +65,11 @@ function SeatReservation() {
     setSelectedTable_id(event.target.value);
   };
 
+  const cancelHandler = (event) => {
+    event.preventDefault();
+    history.goBack();
+  };
+
   return (
     <div>
       <ErrorAlert error={reservationsError} />
@@ -80,7 +85,7 @@ function SeatReservation() {
         <button type="submit" onClick={submitHandler}>
           Submit
         </button>
-        <button onClick={() => history.goBack()}>Cancel</button>
+        <button onClick={cancelHandler}>Cancel</button>
       </form>
     </div>
   );

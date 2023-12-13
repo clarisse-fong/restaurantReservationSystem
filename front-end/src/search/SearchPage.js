@@ -19,10 +19,6 @@ function SearchPage() {
     const abortController = new AbortController();
     listReservations({ mobile_number: mobileNumParam }, abortController.signal)
       .then(setReservations)
-      .then(() => {
-        console.log("reservations", reservations);
-      })
-
       .catch(setReservationsError);
     return () => abortController.abort();
   }
