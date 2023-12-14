@@ -54,6 +54,8 @@ function ListAllTables() {
         <td>
           {table.reservation_id ? (
             <button
+              type="button"
+              className="btn btn-secondary"
               data-table-id-finish={`${table.table_id}`}
               onClick={() =>
                 finishHandler(table.table_id, table.reservation_id)

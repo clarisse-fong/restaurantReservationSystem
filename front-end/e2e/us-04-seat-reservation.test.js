@@ -183,6 +183,7 @@ describe("US-04 - Seat reservation - E2E", () => {
         path: ".screenshots/us-04-seat-reservation-submit-before.png",
         fullPage: true,
       });
+      console.log("*****bfore", page.url());
 
       await Promise.all([
         page.click("[type=submit]"),
@@ -194,6 +195,7 @@ describe("US-04 - Seat reservation - E2E", () => {
         fullPage: true,
       });
 
+      console.log("*****after", page.url());
       expect(page.url()).toContain("/dashboard");
       expect(page).toMatch(/occupied/i);
     });

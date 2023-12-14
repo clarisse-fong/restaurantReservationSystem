@@ -56,7 +56,7 @@ function SeatReservation() {
           abortController.signal
         );
       })
-      .then(() => history.goBack())
+      .then(() => history.push("/"))
       .catch(setReservationsError);
     return () => abortController.abort();
   };
@@ -82,10 +82,22 @@ function SeatReservation() {
             {tableRows}
           </select>
         </label>
-        <button type="submit" onClick={submitHandler}>
-          Submit
-        </button>
-        <button onClick={cancelHandler}>Cancel</button>
+        <div>
+          <button
+            className="btn btn-primary"
+            type="submit"
+            onClick={submitHandler}
+          >
+            Submit
+          </button>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={cancelHandler}
+          >
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );
