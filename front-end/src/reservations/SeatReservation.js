@@ -43,22 +43,27 @@ function SeatReservation() {
   const submitHandler = (event) => {
     event.preventDefault();
     const abortController = new AbortController();
-
-    assignReservationToTable(
-      selectedTable_id,
-      reservation_id,
-      abortController.signal
-    )
-      .then(() => {
-        updateReservationStatus(
-          reservation_id,
-          "seated",
-          abortController.signal
-        );
-      })
-      .then(() => history.push("/"))
-      .catch(setReservationsError);
-    return () => abortController.abort();
+    if (selectedTable_id === "") {
+      const error = new Error("No table is selected");
+      error.status = 400;
+      setReservationsError(error);
+    } else {
+      assignReservationToTable(
+        selectedTable_id,
+        reservation_id,
+        abortController.signal
+      )
+        .then(() => {
+          updateReservationStatus(
+            reservation_id,
+            "seated",
+            abortController.signal
+          );
+        })
+        .then(() => history.push("/"))
+        .catch(setReservationsError);
+      return () => abortController.abort();
+    }
   };
 
   const handleChange = (event) => {
