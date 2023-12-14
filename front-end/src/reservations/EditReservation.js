@@ -21,6 +21,7 @@ function EditReservation() {
   };
   const [formData, setFormData] = useState(initialFormData);
   const [reservation, setReservation] = useState(initialFormData);
+  const [loading, setLoading] = useState(true);
 
   useEffect(loadReservation, [
     reservation_id,
@@ -47,6 +48,7 @@ function EditReservation() {
             reservation_time: reservation.reservation_time,
             people: reservation.people,
           });
+          setLoading(false);
         })
         .catch(setReservationsErrors);
       return () => abortController.abort();
@@ -54,7 +56,10 @@ function EditReservation() {
   }
 
   //checks if reservation has loaded. If it hasn't loaded, say "loading". If not, return the ReservationForm component.
-  return reservation !== null ? (
+  if (loading) {
+    return <p>Loading</p>;
+  }
+  return (
     <div>
       {reservation !== null && reservation.status !== "booked" ? (
         <h3>You can only edit reservations that are booked</h3>
@@ -69,8 +74,6 @@ function EditReservation() {
         />
       )}
     </div>
-  ) : (
-    <h1>Loading...</h1>
   );
 }
 

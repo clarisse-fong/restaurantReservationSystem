@@ -28,6 +28,8 @@ function SearchMobileNumber() {
             <input
               id="mobile_number"
               type="text"
+              className="form-control"
+              style={{ width: "300px" }}
               name="mobile_number"
               placeholder="Enter a customer’s phone number"
               onChange={handleChange}
