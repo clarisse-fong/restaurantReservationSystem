@@ -2,6 +2,7 @@ import { useState } from "react";
 import { updateReservationStatus } from "../utils/api";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import ErrorAlert from "../layout/ErrorAlert";
+import formatReservationTime from "../utils/format-reservation-time";
 
 /**
  * @returns {JSX.Element} a table with a list of all reservations.
@@ -31,18 +32,34 @@ function ListAllReservations({ reservations }) {
     }
   };
 
-  const tableRows = reservations.map((reservation) => {
+  const reservationsList = reservations.map((reservation) => {
+    const formattedTime = formatReservationTime(reservation);
+
     return (
-      <tr key={reservation.reservation_id}>
-        <td>{reservation.first_name}</td>
-        <td>{reservation.last_name}</td>
-        <td>{reservation.mobile_number}</td>
-        <td data-reservation-id-status={`${reservation.reservation_id}`}>
-          {reservation.status}
-        </td>
-        <td>{reservation.reservation_date}</td>
-        <td>{reservation.reservation_time}</td>
-        <td>{reservation.people}</td>
+      <article key={reservation.reservation_id}>
+        <p data-reservation-id-status={`${reservation.reservation_id}`}>
+          <h4>
+            {`${reservation.first_name} ${reservation.last_name}`}
+            <span> {reservation.status}</span>
+          </h4>
+        </p>
+        <div>
+          <div>
+            <div>
+              <p>
+                <i class="bi bi-clock"> </i>
+                {formattedTime}
+                <i className="bi bi-person-fill pl-3"> </i>
+                {reservation.people}
+              </p>
+              <p></p>
+              <div>
+                <i class="bi bi-telephone-fill"> </i>
+                {reservation.mobile_number}
+              </div>
+            </div>
+          </div>
+        </div>
         <td>
           {reservation.status === "booked" ? (
             <Link
@@ -82,7 +99,8 @@ function ListAllReservations({ reservations }) {
             ""
           )}
         </td>
-      </tr>
+        <hr></hr>
+      </article>
     );
   });
 
@@ -92,26 +110,10 @@ function ListAllReservations({ reservations }) {
     return <h3>No reservations found</h3>;
   } else {
     return (
-      <div>
+      <main>
         <ErrorAlert error={reservationErrors} />
-        <table className="table">
-          <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Mobile Number</th>
-              <th>Status</th>
-              <th>Reservation Date</th>
-              <th>Reservation Time</th>
-              <th>Party Size</th>
-              <th>Seat</th>
-              <th>Edit</th>
-              <th>Cancel</th>
-            </tr>
-          </thead>
-          <tbody>{tableRows}</tbody>
-        </table>
-      </div>
+        <section>{reservationsList}</section>
+      </main>
     );
   }
 }

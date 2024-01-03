@@ -44,7 +44,7 @@ function ListAllTables() {
 
   const tableRows = tables.map((table) => {
     return (
-      <tr key={table.table_id}>
+      <article key={table.table_id}>
         <td>{table.table_name}</td>
         <td>{table.capacity}</td>
         <td data-table-id-status={table.table_id}>
@@ -65,26 +65,15 @@ function ListAllTables() {
             </button>
           ) : null}
         </td>
-      </tr>
+      </article>
     );
   });
 
   return (
     <div>
       <ErrorAlert error={tablesError} />
-      <h1>Tables</h1>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Table Name</th>
-            <th>Capacity</th>
-            <th>Status</th>
-            <th>Reservation Id</th>
-            <th>Clear Table</th>
-          </tr>
-        </thead>
-        <tbody>{tableRows}</tbody>
-      </table>
+      <h2>Tables</h2>
+      {tableRows}
     </div>
   );
 }

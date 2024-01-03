@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import ListAllTables from "./ListAllTables";
 import ListAllReservations from "./ListAllReservations";
 import useQuery from "../utils/useQuery";
+import formatReservationDate from "../utils/format-reservation-date";
 
 /**
  * Defines the dashboard page.
@@ -57,42 +58,51 @@ function Dashboard({ date }) {
 
   return (
     <main>
-      <h1>Dashboard</h1>
-      <div>
-        <div className="d-md-flex mb-3">
-          <h4 className="mb-0">Reservations for {currDate}</h4>
-        </div>
-        <ErrorAlert error={reservationsError} />
-        <ListAllReservations reservations={reservations} />
-        <div className="btn-group">
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={buttonHandler}
-            name="previous"
-          >
-            Previous
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={buttonHandler}
-            name="today"
-          >
-            Today
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={buttonHandler}
-            name="next"
-          >
-            Next
-          </button>
+      <h1 className="font-weight-bold">Dashboard </h1>
+      <div className="container">
+        <div className="row">
+          <div className="col-12 col-sm-6">
+            <div>
+              <h2>Reservations </h2>
+              <br></br>
+              <h5>{formatReservationDate(currDate.toString())}</h5>
+            </div>
+            <hr></hr>
+            <ErrorAlert error={reservationsError} />
+            <ListAllReservations reservations={reservations} />
+            <div>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={buttonHandler}
+                name="previous"
+              >
+                Previous
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={buttonHandler}
+                name="today"
+              >
+                Today
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={buttonHandler}
+                name="next"
+              >
+                Next
+              </button>
+            </div>
+            <br></br>
+          </div>
+          <div className="col-12 col-sm-4">
+            <ListAllTables />
+          </div>
         </div>
       </div>
-      <br></br>
-      <ListAllTables />
     </main>
   );
 }
