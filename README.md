@@ -6,7 +6,7 @@ You can find the deployed backend [here](https://restaurantreservationsystem-bac
 and the deployed frontend [here](https://restaurantreservationsystem-frontend.onrender.com).
 
 
-## Summary
+## About
 
 I created a restaurant reservation system for my final capstone at my Chegg Skills Engineering program.
 
