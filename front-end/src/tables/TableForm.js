@@ -54,12 +54,13 @@ export const TableForm = () => {
   };
 
   return (
-    <div>
-      <ErrorAlert error={tableErrors} />
-      <form>
-        <div>
-          <label htmlFor="table_name">
-            Table Name
+    <div className="container-fluid">
+      <h1>New Table</h1>
+      <div className="purple-gradient col-6">
+        <ErrorAlert error={tableErrors} />
+        <form>
+          <div className="row">
+            <label htmlFor="table_name">Table Name</label>
             <input
               type="text"
               id="table_name"
@@ -67,11 +68,9 @@ export const TableForm = () => {
               onChange={onChangeHandler}
               value={formData.table_name ? formData.table_name : ""}
             ></input>
-          </label>
-        </div>
-        <div>
-          <label htmlFor="capacity">
-            Capacity
+          </div>
+          <div className="row">
+            <label htmlFor="capacity">Capacity</label>
             <input
               type="number"
               min="0"
@@ -80,19 +79,21 @@ export const TableForm = () => {
               onChange={onChangeHandler}
               value={formData.capacity ? formData.capacity : ""}
             ></input>
-          </label>
-        </div>
-        <button
-          className="btn btn-primary"
-          type="submit"
-          onClick={submitHandler}
-        >
-          Submit
-        </button>
-        <button className="btn btn-danger" onClick={cancelHandler}>
-          Cancel
-        </button>
-      </form>
+          </div>
+          <div className="row pt-4">
+            <button
+              className="btn-oval purple"
+              type="submit"
+              onClick={submitHandler}
+            >
+              Submit
+            </button>
+            <button className="btn-oval purple" onClick={cancelHandler}>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

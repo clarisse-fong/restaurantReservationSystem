@@ -1,0 +1,55 @@
+.Dashboard {
+  border-radius: 30px;
+}
+
+.Dashboard .header {
+  /* grid-row: 1; */
+  /* grid-column: 1; */
+}
+
+.Dashboard .buttons {
+  /* grid-row: 1; */
+  /* grid-column: 2 / 4; */
+}
+
+.Dashboard button {
+  border: none;
+}
+
+.Dashboard .reservations-header {
+  /* grid-row: 3; */
+  /* grid-column: 1; */
+}
+
+.Dashboard .reservations-list {
+  /* grid-row: 5; */
+  /* grid-column: 1; */
+}
+
+.Dashboard .vertical-rule {
+  /* grid-row: 2 / 4; */
+  /* grid-column: 6; */
+  background-color: grey;
+  width: 1px;
+  height: 500px;
+}
+
+.Dashboard .tables-header {
+  /* grid-row: 2; */
+  /* grid-column: 7; */
+}
+.Dashboard .tables-list {
+  /* grid-row: 3; */
+  /* grid-column: 7; */
+  color: red;
+}
+
+.Dashboard .date {
+  /* grid-row: 2; */
+  /* grid-column: 4; */
+}
+
+.btn-previous,
+.btn-next {
+  background-color: transparent;
+}

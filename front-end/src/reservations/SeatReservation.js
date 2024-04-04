@@ -76,34 +76,35 @@ function SeatReservation() {
   };
 
   return (
-    <div>
+    <div className="Seat-Reservation container-fluid">
       <ErrorAlert error={reservationsError} />
-      <h1>Seat Reservation #{reservation_id}</h1>
-      <form>
-        <p>Choose a table for the reservation:</p>
-        <label htmlFor="table_id">
-          <select id="table_id" name="table_id" onChange={handleChange}>
-            <option value="">Select a table</option>
-            {tableRows}
-          </select>
-        </label>
-        <div>
-          <button
-            className="btn btn-primary"
-            type="submit"
-            onClick={submitHandler}
-          >
-            Submit
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={cancelHandler}
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
+      <h1>Assign Reservation #{reservation_id}</h1>
+      <div className="purple-gradient col-6">
+        <form>
+          <div className="row">
+            <h2>Choose a table:</h2>
+          </div>
+          <div className="row">
+            <label htmlFor="table_id"></label>
+            <select id="table_id" name="table_id" onChange={handleChange}>
+              <option value="">Select a table</option>
+              {tableRows}
+            </select>
+          </div>
+          <div className="row pt-5">
+            <button
+              className="btn-oval purple"
+              type="submit"
+              onClick={submitHandler}
+            >
+              Submit
+            </button>
+            <button type="button" className="btn-grey" onClick={cancelHandler}>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

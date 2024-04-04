@@ -2,7 +2,17 @@ import { formatAsTime } from "./date-time";
 
 function formatTime(reservation) {
   reservation.reservation_time = formatAsTime(reservation.reservation_time);
-  return reservation;
+  // let newReservationTime = reservation.reservation_time;
+  let newReservationTime = "";
+  const hr = Number(reservation.reservation_time.slice(0, 2));
+  const minutes = reservation.reservation_time.slice(3);
+  if (hr > 12) {
+    const newHr = hr - 12;
+    newReservationTime = `${newHr}:${minutes}PM`;
+  } else {
+    newReservationTime = `${hr}:${minutes}AM`;
+  }
+  return newReservationTime;
 }
 
 /**

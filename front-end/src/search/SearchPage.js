@@ -27,15 +27,22 @@ function SearchPage() {
   useEffect(loadSearchPage, [mobileNumParam]);
 
   return (
-    <div>
-      <SearchMobileNumber />
-      {mobileNumParam ? (
-        <ListAllReservations
-          reservations={reservations}
-          loadSearchPage={loadSearchPage}
-        />
-      ) : null}
-    </div>
+    <>
+      <div className="Search-Form container-fluid">
+        <h1>Search</h1>
+        <div className="purple-gradient">
+          <SearchMobileNumber />
+          <div className="row pt-3 pl-3">
+            {mobileNumParam ? (
+              <ListAllReservations
+                reservations={reservations}
+                loadSearchPage={loadSearchPage}
+              />
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Dashboard.css";
 import { listReservations } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 import { today, previous, next } from "../utils/date-time";
@@ -6,6 +7,9 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import ListAllTables from "./ListAllTables";
 import ListAllReservations from "./ListAllReservations";
 import useQuery from "../utils/useQuery";
+import formatReservationDate from "../utils/format-reservation-date";
+import leftArrowIcon from "../Assets/icon-arrow-left.svg";
+import rightArrowIcon from "../Assets/icon-arrow-right.svg";
 
 /**
  * Defines the dashboard page.
@@ -57,42 +61,58 @@ function Dashboard({ date }) {
 
   return (
     <main>
-      <h1>Dashboard</h1>
-      <div>
-        <div className="d-md-flex mb-3">
-          <h4 className="mb-0">Reservations for {currDate}</h4>
+      <div className="Dashboard container-fluid">
+        <div className="row first-row  align-items-center">
+          <h1 className="col col-4 header">Dashboard </h1>
+          <div className="col col-7 buttons">
+            <button
+              type="button"
+              className="btn-previous"
+              onClick={buttonHandler}
+              name="previous"
+            >
+              <img src={leftArrowIcon}></img>
+            </button>
+            <button
+              type="button"
+              className="btn-today btn-oval purple"
+              onClick={buttonHandler}
+              name="today"
+            >
+              Today
+            </button>
+            <button
+              type="button"
+              className="btn-next"
+              onClick={buttonHandler}
+              name="next"
+            >
+              <img src={rightArrowIcon}></img>
+            </button>
+          </div>
         </div>
         <ErrorAlert error={reservationsError} />
-        <ListAllReservations reservations={reservations} />
-        <div className="btn-group">
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={buttonHandler}
-            name="previous"
-          >
-            Previous
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={buttonHandler}
-            name="today"
-          >
-            Today
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            onClick={buttonHandler}
-            name="next"
-          >
-            Next
-          </button>
+        <div className="purple-gradient">
+          <div className="row second-row headers align-items-center">
+            <h2 className="col col-6 reservations-header">Reservations </h2>
+            <h3 className="col col-2 date">
+              {/* {formatReservationDate(currDate.toString())} */}
+            </h3>
+            <h2 className="col tables-header">Tables</h2>
+          </div>
+          <div className="row third-row">
+            <div className="col-8 reservations-list pt-3">
+              <ListAllReservations reservations={reservations} />
+            </div>
+            <div className="col-0">
+              <div className="vertical-rule"></div>
+            </div>
+            <div className="col tables-list">
+              <ListAllTables />
+            </div>
+          </div>
         </div>
       </div>
-      <br></br>
-      <ListAllTables />
     </main>
   );
 }

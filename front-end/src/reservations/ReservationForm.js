@@ -45,6 +45,8 @@ function ReservationForm({
         value = event.target.value;
     }
 
+    console.log(value);
+
     setFormData({
       ...formData,
       [event.target.name]: value,
@@ -84,78 +86,97 @@ function ReservationForm({
   return formData.first_name !== null ? (
     <div>
       <ErrorAlert error={reservationsErrors} />
-      <h1>Reservation Form</h1>
-      <form>
-        <label htmlFor="first_name">
-          First Name
-          <input
-            type="text"
-            id="first_name"
-            name="first_name"
-            onChange={onChangeHandler}
-            value={formData.first_name ? formData.first_name : ""}
-          />
-        </label>
-        <label htmlFor="last_name">
-          Last name
-          <input
-            type="text"
-            id="last_name"
-            name="last_name"
-            onChange={onChangeHandler}
-            value={formData.last_name ? formData.last_name : ""}
-          />
-        </label>
-        <label htmlFor="mobile_number">Mobile Number</label>
-        <input
-          type="text"
-          id="mobile_number"
-          name="mobile_number"
-          onChange={onChangeHandler}
-          value={formData.mobile_number ? formData.mobile_number : ""}
-        />
-        <label htmlFor="reservation_date">Date of Reservation</label>
-        <input
-          type="date"
-          id="reservation_date"
-          name="reservation_date"
-          onChange={onChangeHandler}
-          value={formData.reservation_date ? formData.reservation_date : ""}
-        />
-        <label htmlFor="reservation_time">Time of Reservation</label>
-        <input
-          type="time"
-          id="reservation_time"
-          name="reservation_time"
-          onChange={onChangeHandler}
-          value={formData.reservation_time ? formData.reservation_time : ""}
-        />
-        <label htmlFor="people">Number of People in the party</label>
-        <input
-          type="number"
-          min="0"
-          id="people"
-          name="people"
-          onChange={onChangeHandler}
-          value={formData.people ? String(formData.people) : ""}
-        />
-        <div>
-          <button
-            className="btn btn-primary"
-            type="submit"
-            onClick={submitHandler}
-          >
-            Submit
-          </button>
-          <button
-            type="button"
-            className="btn btn-danger"
-            onClick={cancelHandler}
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
+      <div className="Reservation-Form container-fluid">
+        <form className="reservation-form">
+          <div className="row">
+            <h1 className="col">Reservation Form</h1>
+          </div>
+          <div className="purple-gradient col-6">
+            <div className="row justify-content-start">
+              <label htmlFor="first_name">First Name</label>
+              <input
+                type="text"
+                id="first_name"
+                name="first_name"
+                onChange={onChangeHandler}
+                value={formData.first_name ? formData.first_name : ""}
+              />
+            </div>
+            <div className="row">
+              <label htmlFor="last_name">Last name</label>
+              <input
+                type="text"
+                id="last_name"
+                name="last_name"
+                onChange={onChangeHandler}
+                value={formData.last_name ? formData.last_name : ""}
+              />
+            </div>
+            <div className="row">
+              <label htmlFor="mobile_number">Mobile Number</label>
+              <input
+                type="text"
+                id="mobile_number"
+                name="mobile_number"
+                onChange={onChangeHandler}
+                value={formData.mobile_number ? formData.mobile_number : ""}
+              />
+            </div>
+            <div className="row">
+              <label htmlFor="reservation_date">Date of Reservation</label>
+              <input
+                type="date"
+                id="reservation_date"
+                name="reservation_date"
+                onChange={onChangeHandler}
+                value={
+                  formData.reservation_date ? formData.reservation_date : ""
+                }
+              />
+            </div>
+            <div className="row">
+              <label htmlFor="reservation_time">Time of Reservation</label>
+              <input
+                type="time"
+                id="reservation_time"
+                name="reservation_time"
+                onChange={onChangeHandler}
+                value={
+                  formData.reservation_time ? formData.reservation_time : ""
+                }
+              />
+            </div>
+            <div className="row">
+              <label htmlFor="people">Party Size</label>
+              <input
+                type="number"
+                min="0"
+                id="people"
+                name="people"
+                onChange={onChangeHandler}
+                value={formData.people ? String(formData.people) : ""}
+              />
+            </div>
+            <div className="row fifth-row pt-5 justify-content-start">
+              <button
+                className="btn-oval purple"
+                type="submit"
+                onClick={submitHandler}
+              >
+                Submit
+              </button>
+
+              <button
+                type="button"
+                className="btn-oval purple"
+                onClick={cancelHandler}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   ) : (
     "Loading..."
