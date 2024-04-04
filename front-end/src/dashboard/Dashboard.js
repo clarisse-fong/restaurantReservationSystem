@@ -46,6 +46,7 @@ function Dashboard({ date }) {
 
   //enters a new dateparam into the dashboard url depending on if they previous, today, or next day buttons
   function buttonHandler(event) {
+    console.log(event);
     switch (event.target.name) {
       case "previous":
         history.push(`/dashboard/?date=${previous(currDate)}`);
@@ -71,7 +72,7 @@ function Dashboard({ date }) {
               onClick={buttonHandler}
               name="previous"
             >
-              <img src={leftArrowIcon}></img>
+              <img name="previous" src={leftArrowIcon}></img>
             </button>
             <button
               type="button"
@@ -87,7 +88,7 @@ function Dashboard({ date }) {
               onClick={buttonHandler}
               name="next"
             >
-              <img src={rightArrowIcon}></img>
+              <img src={rightArrowIcon} name="next"></img>
             </button>
           </div>
         </div>
@@ -95,9 +96,7 @@ function Dashboard({ date }) {
         <div className="purple-gradient">
           <div className="row second-row headers align-items-center">
             <h2 className="col col-6 reservations-header">Reservations </h2>
-            <h3 className="col col-2 date">
-              {/* {formatReservationDate(currDate.toString())} */}
-            </h3>
+            <h3 className="col col-2 date">{currDate.toString()}</h3>
             <h2 className="col tables-header">Tables</h2>
           </div>
           <div className="row third-row">
