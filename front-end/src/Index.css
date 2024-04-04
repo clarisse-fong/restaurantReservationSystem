@@ -1,21 +1,85 @@
 * {
-  font-family: Poppins, "sans-serif";
+  font-family: "Outfit";
+  color: white;
 }
 
-.font-poppins-heading {
-  font-family: Poppins, "sans-serif";
-  font-weight: 700;
+a {
+  color: white;
 }
 
-h1 span {
-  font-size: 16px;
+h1 {
+  font-size: 54px;
+  font-weight: 600;
 }
 
-h4 span {
-  font-size: 16px;
-  background-color: red;
+h2 {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 300;
 }
 
 .half {
   size: 50%;
+}
+
+body {
+  background-color: #13072e;
+}
+
+label {
+  margin-right: 15px;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+input {
+  width: 100%;
+  font-size: 26px;
+  color: black;
+}
+
+select {
+  color: black;
+  width: 100%;
+  font-size: 26px;
+}
+
+.purple {
+  background-color: #b3aaff;
+  color: black;
+}
+
+.btn-oval {
+  width: 200px;
+  height: 45px;
+  border-radius: 30px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.grey {
+  background-color: gray;
+  color: white;
+}
+
+.pink {
+  background-color: red;
+  color: white;
+}
+
+.purple-gradient {
+  background-image: linear-gradient(to right, #3f2182, #1f0c4b);
+  width: 100%;
+  border-radius: 30px;
+  padding: 30px 50px;
+  width: 1200px;
+}
+
+.All-Tables {
+  font-size: 20px;
 }

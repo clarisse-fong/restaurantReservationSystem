@@ -1,28 +1,8 @@
-function formatDate(reservationDate) {
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+import { formatAsDate } from "./date-time";
 
-  let formattedReservation = "";
-  const year = reservationDate.slice(0, 4);
-  const monthNum = Number(reservationDate.slice(6, 7));
-  const day =
-    reservationDate[8] === "0"
-      ? reservationDate.slice(9)
-      : reservationDate.slice(8);
-  formattedReservation = `${months[monthNum - 1]} ${day} of ${year}`;
-  return formattedReservation;
+function formatDate(reservation) {
+  reservation.reservation_date = formatAsDate(reservation.reservation_date);
+  return reservation;
 }
 
 /**

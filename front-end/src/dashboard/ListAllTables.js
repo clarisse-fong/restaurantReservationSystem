@@ -44,35 +44,69 @@ function ListAllTables() {
 
   const tableRows = tables.map((table) => {
     return (
-      <article key={table.table_id}>
-        <td>{table.table_name}</td>
-        <td>{table.capacity}</td>
-        <td data-table-id-status={table.table_id}>
-          {table.reservation_id ? "Occupied" : "Free"}
-        </td>
-        <td>{table.reservation_id ? table.reservation_id : ""}</td>
-        <td>
-          {table.reservation_id ? (
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-table-id-finish={`${table.table_id}`}
-              onClick={() =>
-                finishHandler(table.table_id, table.reservation_id)
-              }
-            >
-              Finish
-            </button>
-          ) : null}
-        </td>
-      </article>
+      <div className="All-Tables container-fluid pb-4" key={table.table_id}>
+        <div className="row">
+          <div className="col">
+            {table.table_name} / Capacity:&nbsp;{table.capacity}
+          </div>
+        </div>
+        <div className="row">
+          <div className="col" data-table-id-status={table.table_id}>
+            Status:&nbsp;{table.reservation_id ? "Occupied" : "Free"}
+            &nbsp;&nbsp;&nbsp;
+            {table.reservation_id ? (
+              <button
+                type="button"
+                className="btn purple text-light pt-0 pb-0"
+                data-table-id-finish={`${table.table_id}`}
+                onClick={() =>
+                  finishHandler(table.table_id, table.reservation_id)
+                }
+              >
+                Finish
+              </button>
+            ) : null}
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            {table.reservation_id
+              ? `Reservation: #${table.reservation_id}`
+              : ""}
+          </div>
+          <div className="row"></div>
+          <div className="row"></div>
+        </div>
+
+        <article key={table.table_id}>
+          {/* <td>{table.table_name}</td> */}
+          {/* <td>{table.capacity}</td> */}
+          {/* <td data-table-id-status={table.table_id}>
+            {table.reservation_id ? "Occupied" : "Free"}
+          </td> */}
+          {/* <td>{table.reservation_id ? table.reservation_id : ""}</td> */}
+          {/* <td>
+            {table.reservation_id ? (
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-table-id-finish={`${table.table_id}`}
+                onClick={() =>
+                  finishHandler(table.table_id, table.reservation_id)
+                }
+              >
+                Finish
+              </button>
+            ) : null}
+          </td> */}
+        </article>
+      </div>
     );
   });
 
   return (
     <div>
       <ErrorAlert error={tablesError} />
-      <h2>Tables</h2>
       {tableRows}
     </div>
   );

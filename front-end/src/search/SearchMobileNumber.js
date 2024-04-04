@@ -20,11 +20,13 @@ function SearchMobileNumber() {
   };
 
   return (
-    <div>
-      <h1>Search for reservations</h1>
-      <form>
-        <div className="form-group">
-          <label htmlFor="mobile_number">
+    <form className="search-form">
+      <div className="row justify-content-start align-items-center">
+        <div className="col-12">
+          <label htmlFor="mobile_number">Phone Number</label>
+        </div>
+        <div className="row pl-3">
+          <div className="col">
             <input
               id="mobile_number"
               type="text"
@@ -35,18 +37,19 @@ function SearchMobileNumber() {
               onChange={handleChange}
               value={mobile_number}
             />
-          </label>
-          <div></div>
-          <button
-            className="btn btn-primary"
-            type="submit"
-            onSubmit={handleSubmit}
-          >
-            Find
-          </button>
+          </div>
+          <div className="col">
+            <button
+              className="btn-oval purple"
+              type="submit"
+              onSubmit={handleSubmit}
+            >
+              Find
+            </button>
+          </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 }
 

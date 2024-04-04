@@ -40,7 +40,7 @@ function ListAllReservations({ reservations }) {
         <p data-reservation-id-status={`${reservation.reservation_id}`}>
           <h4>
             {`${reservation.first_name} ${reservation.last_name}`}
-            <span> {reservation.status}</span>
+            <span> / {reservation.status}</span>
           </h4>
         </p>
         <div>
@@ -64,7 +64,7 @@ function ListAllReservations({ reservations }) {
           {reservation.status === "booked" ? (
             <Link
               to={`/reservations/${reservation.reservation_id}/seat`}
-              className="btn btn-primary"
+              className="btn purple text-light"
             >
               Seat
             </Link>
@@ -76,7 +76,7 @@ function ListAllReservations({ reservations }) {
           {reservation.status === "booked" ? (
             <Link
               to={`/reservations/${reservation.reservation_id}/edit`}
-              className="btn btn-secondary"
+              className="btn grey"
             >
               Edit
             </Link>
@@ -87,13 +87,13 @@ function ListAllReservations({ reservations }) {
         <td>
           {reservation.status === "booked" ? (
             <button
-              className="btn btn-danger"
+              className="btn btn-primary pt-2"
               data-reservation-id-cancel={reservation.reservation_id}
               onClick={() =>
                 cancelReservationHandler(reservation.reservation_id)
               }
             >
-              Cancel
+              X
             </button>
           ) : (
             ""
