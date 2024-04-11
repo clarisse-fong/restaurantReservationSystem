@@ -61,58 +61,56 @@ function Dashboard({ date }) {
   }
 
   return (
-    <main>
-      <div className="Dashboard container-fluid">
-        <div className="row first-row  align-items-center">
-          <h1 className="col col-4 header">Dashboard </h1>
-          <div className="col col-7 buttons">
-            <button
-              type="button"
-              className="btn-previous"
-              onClick={buttonHandler}
-              name="previous"
-            >
-              <img name="previous" src={leftArrowIcon}></img>
-            </button>
-            <button
-              type="button"
-              className="btn-today btn-oval purple"
-              onClick={buttonHandler}
-              name="today"
-            >
-              Today
-            </button>
-            <button
-              type="button"
-              className="btn-next"
-              onClick={buttonHandler}
-              name="next"
-            >
-              <img src={rightArrowIcon} name="next"></img>
-            </button>
-          </div>
+    <div className="Dashboard container-fluid">
+      <div className="row first-row  align-items-center">
+        <h1 className="col col-4 header">Dashboard </h1>
+        <div className="col col-7 buttons">
+          <button
+            type="button"
+            className="btn-previous"
+            onClick={buttonHandler}
+            name="previous"
+          >
+            <img name="previous" src={leftArrowIcon}></img>
+          </button>
+          <button
+            type="button"
+            className="btn-today btn-oval purple"
+            onClick={buttonHandler}
+            name="today"
+          >
+            Today
+          </button>
+          <button
+            type="button"
+            className="btn-next"
+            onClick={buttonHandler}
+            name="next"
+          >
+            <img src={rightArrowIcon} name="next"></img>
+          </button>
         </div>
-        <ErrorAlert error={reservationsError} />
-        <div className="purple-gradient">
-          <div className="row second-row headers align-items-center">
-            <h2 className="col col-6 reservations-header">Reservations </h2>
-            <h3 className="col col-2 date">{currDate.toString()}</h3>
-            <h2 className="col tables-header">Tables</h2>
+      </div>
+      <ErrorAlert error={reservationsError} />
+      <div className="purple-gradient">
+        <div className="row second-row headers align-items-center">
+          <h2 className="col col-7 reservations-header">Reservations </h2>
+          <h4 className="col col-2 date">{currDate.toString()}</h4>
+          <h2 className="col tables-header">Tables</h2>
+        </div>
+        <div className="row third-row">
+          <div className="col-9 reservations-list pt-3">
+            <ListAllReservations reservations={reservations} />
           </div>
-          <div className="row third-row">
-            <div className="col-8 reservations-list pt-3">
-              <ListAllReservations reservations={reservations} />
-            </div>
-            <div className="col-0">
-              <div className="vertical-rule"></div>
-            </div>
-            <div className="col tables-list">
-              <ListAllTables />
-            </div>
+          <div className="col-0">
+            <div className="vertical-rule"></div>
+          </div>
+          <div className="col tables-list pt-3">
+            <ListAllTables />
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 

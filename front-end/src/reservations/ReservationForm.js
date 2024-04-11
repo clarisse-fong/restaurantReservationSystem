@@ -168,7 +168,7 @@ function ReservationForm({
 
               <button
                 type="button"
-                className="btn-oval purple"
+                className="btn-oval text-dark"
                 onClick={cancelHandler}
               >
                 Cancel
