@@ -88,7 +88,7 @@ export const TableForm = () => {
             >
               Submit
             </button>
-            <button className="btn-oval purple" onClick={cancelHandler}>
+            <button className="btn-oval text-dark" onClick={cancelHandler}>
               Cancel
             </button>
           </div>

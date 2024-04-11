@@ -5,21 +5,27 @@
 
 a {
   color: white;
+  font-size: 1.111vw;
 }
 
 h1 {
-  font-size: 54px;
+  font-size: 3vw;
   font-weight: 600;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 2vw;
   font-weight: 500;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.035vw;
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 1.5vw;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 1.5vw;
   font-weight: 300;
 }
 
@@ -32,21 +38,16 @@ body {
 }
 
 label {
-  margin-right: 15px;
-  font-size: 26px;
+  margin-right: 1.042vw;
+  font-size: 1.806vw;
   font-weight: 400;
 }
 
-input {
-  width: 100%;
-  font-size: 26px;
-  color: black;
-}
-
+input,
 select {
-  color: black;
   width: 100%;
-  font-size: 26px;
+  font-size: 1.806vw;
+  color: black;
 }
 
 .purple {
@@ -55,11 +56,19 @@ select {
 }
 
 .btn-oval {
-  width: 200px;
-  height: 45px;
-  border-radius: 30px;
-  font-size: 24px;
+  width: 13.889vw;
+  height: 3.125vw;
+  border-radius: 2.083vw;
+  font-size: 1.667vw;
   font-weight: 300;
+}
+
+.small-button {
+  width: 4.861vw;
+  padding-top: 0vw;
+  margin-bottom: 4px;
+  border-radius: 0.347vw;
+  font-size: 1.25vw;
 }
 
 .grey {
@@ -67,8 +76,13 @@ select {
   color: white;
 }
 
-.pink {
-  background-color: red;
+.blue {
+  background-color: lightskyblue;
+  color: white;
+}
+
+.black {
+  background-color: black;
   color: white;
 }
 
@@ -76,10 +90,26 @@ select {
   background-image: linear-gradient(to right, #3f2182, #1f0c4b);
   width: 100%;
   border-radius: 30px;
-  padding: 30px 50px;
-  width: 1200px;
+  padding: 2.083vw 3.472vw;
 }
 
 .All-Tables {
-  font-size: 20px;
+  font-size: 1.389vw;
+}
+
+.imageAsIcon {
+  width: 1.389vw;
+}
+
+.reservation-info {
+  margin-left: 1.689vw;
+  font-size: 1.2vw;
+}
+
+.reservation-id {
+  font-size: 1.111vw;
+  background-color: grey;
+  border-radius: 15px;
+  padding: 0px 3px;
+  margin: 5px;
 }

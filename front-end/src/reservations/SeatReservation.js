@@ -99,7 +99,11 @@ function SeatReservation() {
             >
               Submit
             </button>
-            <button type="button" className="btn-grey" onClick={cancelHandler}>
+            <button
+              type="button"
+              className="btn-oval text-dark"
+              onClick={cancelHandler}
+            >
               Cancel
             </button>
           </div>
