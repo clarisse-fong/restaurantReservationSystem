@@ -32,7 +32,8 @@ This is a monorepo. You can find the original assignment here [Thinkful-Ed/start
 
 The Dashboard page displays all reservations for a given date and all tables. Each reservation has an option to seat, edit or, cancel the reservation. Each table displays the capacity and status. If the table is occupied, it also displays the reservation_id and a button to clear the table once its done.
 
-<img width="1901" alt="image" src="https://github.com/clarisse-fong/restaurantReservationSystem/assets/52180173/e276dde3-fd87-4d49-af22-e892780c6f62">
+<img width="1207" alt="image" src="https://github.com/clarisse-fong/restaurantReservationSystem/assets/52180173/af8d90ab-80ec-4299-bd15-bebea1e6449b">
+
 
 
 ### New Reservation
